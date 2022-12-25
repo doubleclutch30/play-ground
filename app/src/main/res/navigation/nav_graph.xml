@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/letterListFragment"
-        android:name="com.todak.playground.LetterListFragment"
+        android:name="com.todak.playground.ui.word.LetterListFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_letter_list">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/wordListFragment"
-        android:name="com.todak.playground.WordListFragment"
+        android:name="com.todak.playground.ui.word.WordListFragment"
         android:label="@string/word_list_fragment_label"
         tools:layout="@layout/fragment_word_list">
         <argument

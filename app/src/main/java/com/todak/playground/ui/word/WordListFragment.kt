@@ -1,4 +1,4 @@
-package com.todak.playground
+package com.todak.playground.ui.word
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.todak.playground.databinding.FragmentLetterListBinding
 import com.todak.playground.databinding.FragmentWordListBinding
 
 class WordListFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.todak.playground
+package com.todak.playground.ui.word
 
 import android.os.Bundle
 import android.view.*
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.todak.playground.R
 import com.todak.playground.databinding.FragmentLetterListBinding
 
 class LetterListFragment : Fragment() {

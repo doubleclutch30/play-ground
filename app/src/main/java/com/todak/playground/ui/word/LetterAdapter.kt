@@ -1,6 +1,5 @@
-package com.todak.playground
+package com.todak.playground.ui.word
 
-import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.todak.playground.databinding.FragmentWordListBinding
+import com.todak.playground.R
 
 class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
