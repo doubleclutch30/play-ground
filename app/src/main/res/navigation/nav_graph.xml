@@ -4,15 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     android:label="@string/detail_prefix"
-    app:startDestination="@id/letterListFragment">
-
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.todak.playground.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_letterListFragment"
+            app:destination="@+id/letterListFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/letterListFragment"
         android:name="com.todak.playground.ui.word.LetterListFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_letter_list">
         <action
-            android:id="@+id/action_letterListFragment_to_wordListFragment2"
+            android:id="@+id/action_letterListFragment_to_wordListFragment"
             app:destination="@id/wordListFragment" />
     </fragment>
     <fragment
@@ -24,4 +35,8 @@
             android:name="letter"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.todak.playground.ui.game.GameFragment"
+        android:label="GameFragment" />
 </navigation>
