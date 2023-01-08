@@ -33,5 +33,10 @@ class HomeFragment : Fragment() {
                 HomeFragmentDirections.actionHomeFragmentToGameFragment()
             view.findNavController().navigate(action)
         }
+        binding.btnCupcake.setOnClickListener {
+            val action =
+                HomeFragmentDirections.actionHomeFragmentToStartFragment()
+            view.findNavController().navigate(action)
+        }
     }
 }

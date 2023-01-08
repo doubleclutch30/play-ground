@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/letterListFragment"
@@ -39,4 +42,8 @@
         android:id="@+id/gameFragment"
         android:name="com.todak.playground.ui.game.GameFragment"
         android:label="GameFragment" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.todak.playground.ui.cupcake.StartFragment"
+        android:label="StartFragment" />
 </navigation>
