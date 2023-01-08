@@ -33,23 +33,24 @@ class GameFragment : Fragment() {
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
 
-        updateNextWordOnScreen()
-    }
+        viewModel.currentScrambledWord.observe(viewLifecycleOwner) { newWord ->
+            binding.textViewUnscrambledWord.text = newWord
+        }
 
-    private fun updateNextWordOnScreen() {
-        binding.score.text = getString(R.string.score, viewModel.score)
-        binding.wordCount.text = getString(
-            R.string.word_count, viewModel.currentWordCount)
-        binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord
+        viewModel.score.observe(viewLifecycleOwner) { newScore ->
+            binding.score.text = getString(R.string.word_count, newScore)
+        }
+
+        viewModel.currentWordCount.observe(viewLifecycleOwner) { newWordCount ->
+            binding.wordCount.text = getString(R.string.word_count, newWordCount)
+        }
     }
 
     private fun onSubmitWord() {
         val playerWord = binding.textInputEditText.text.toString()
         if (viewModel.isUserWordCorrect(playerWord)) {
             setErrorTextField(false)
-            if (viewModel.nextWord()) {
-                updateNextWordOnScreen()
-            } else {
+            if (!viewModel.nextWord()) {
                 showFinalScoreDialog()
             }
         } else {
@@ -60,7 +61,6 @@ class GameFragment : Fragment() {
     private fun onSkipWord() {
         if (viewModel.nextWord()) {
             setErrorTextField(false)
-            updateNextWordOnScreen()
         } else {
             showFinalScoreDialog()
         }
@@ -69,7 +69,7 @@ class GameFragment : Fragment() {
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.congratulations))
-            .setMessage(getString(R.string.you_scored, viewModel.score))
+            .setMessage(getString(R.string.you_scored, viewModel.score.value))
             .setCancelable(false)
             .setNegativeButton(getString(R.string.exit)) { _, _ ->
                 exitGame()
@@ -83,11 +83,10 @@ class GameFragment : Fragment() {
     private fun restartGame() {
         viewModel.reinitializeData()
         setErrorTextField(false)
-        updateNextWordOnScreen()
     }
 
     private fun exitGame() {
-        TODO("Not yet implemented")
+        
     }
 
     private fun setErrorTextField(error: Boolean) {
@@ -98,5 +97,10 @@ class GameFragment : Fragment() {
             binding.textField.isErrorEnabled = false
             binding.textInputEditText.text = null
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
