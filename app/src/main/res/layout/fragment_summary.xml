@@ -4,7 +4,9 @@
     tools:context=".SummaryFragment">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.todak.playground.ui.cupcake.viewmodel.OrderViewModel" />
     </data>
 
     <ScrollView
