@@ -38,5 +38,10 @@ class HomeFragment : Fragment() {
                 HomeFragmentDirections.actionHomeFragmentToStartFragment()
             view.findNavController().navigate(action)
         }
+        binding.btnExpandTextLine.setOnClickListener {
+            val action =
+                HomeFragmentDirections.actionHomeFragmentToExpandTextFragment()
+            view.findNavController().navigate(action)
+        }
     }
 }

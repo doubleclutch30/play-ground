@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_startFragment"
             app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_expandTextFragment"
+            app:destination="@id/expandTextFragment" />
     </fragment>
     <fragment
         android:id="@+id/letterListFragment"
@@ -45,5 +48,34 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.todak.playground.ui.cupcake.StartFragment"
-        android:label="StartFragment" />
+        android:label="@string/start_title" >
+        <action
+            android:id="@+id/action_startFragment_to_flavorFragment"
+            app:destination="@id/flavorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flavorFragment"
+        android:name="com.todak.playground.ui.cupcake.FlavorFragment"
+        android:label="@string/choose_flavor" >
+        <action
+            android:id="@+id/action_flavorFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickupFragment"
+        android:name="com.todak.playground.ui.cupcake.PickupFragment"
+        android:label="@string/choose_pickup_date" >
+        <action
+            android:id="@+id/action_pickupFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.todak.playground.ui.cupcake.SummaryFragment"
+        android:label="@string/order_summary" />
+    <fragment
+        android:id="@+id/expandTextFragment"
+        android:name="com.todak.playground.ui.expandtext.ExpandTextFragment"
+        android:label="fragment_expand_text"
+        tools:layout="@layout/fragment_expand_text" />
 </navigation>
